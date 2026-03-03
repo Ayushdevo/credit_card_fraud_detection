@@ -67,3 +67,66 @@ This project:
 
 ## 📁 Project Structure
 ```
+credit-card-fraud-detection/
+├── credit_card_fraud_detection.ipynb   # Main Kaggle notebook
+├── outputs/
+│   ├── class_distribution.png
+│   ├── roc_pr_curves.png
+│   ├── confusion_matrices.png
+│   ├── feature_importance.png
+│   └── threshold_optimization.png
+├── models/
+│   ├── xgboost_fraud_model.pkl
+│   ├── neural_network_fraud_model.h5
+│   └── robust_scaler.pkl
+└── README.md
+```
+
+---
+
+## 🚀 Getting Started
+
+### Run on Kaggle (Recommended)
+1. Create a New Notebook → upload `credit_card_fraud_detection.ipynb`
+2. Add dataset: **Data → Add Data → Search `creditcardfraud`**
+3. Enable GPU (Settings → Accelerator → GPU T4 x2)
+4. Run All ✅
+
+### Run Locally
+```bash
+git clone https://github.com/Ayushdevo/credit_card_fraud_detection.git
+cd credit-card-fraud-detection
+pip install -r requirements.txt
+kaggle datasets download -d mlg-ulb/creditcardfraud
+jupyter notebook credit_card_fraud_detection.ipynb
+```
+
+---
+
+## 🔑 Key Learnings
+
+- **Never apply SMOTE to test data** — data leakage will inflate your scores
+- **Accuracy is useless** for imbalanced fraud data — use AUC-ROC and Precision-Recall
+- **Threshold tuning matters** — 0.5 is rarely optimal; tune based on recall vs precision needs
+- **XGBoost wins on tabular data** — consistently outperforms deep learning on structured datasets
+- **Features V14, V17, V12** are the strongest fraud predictors
+
+---
+
+## 🚧 Future Improvements
+
+- [ ] SHAP values for model explainability
+- [ ] Optuna for automated hyperparameter tuning  
+- [ ] Stacking ensemble (XGBoost + Neural Network)
+- [ ] Real-time scoring API with FastAPI
+- [ ] Concept drift detection for production
+
+---
+
+## 🙏 Acknowledgements
+
+- Dataset by [Machine Learning Group – ULB](https://mlg.ulb.ac.be/) via Kaggle
+
+---
+
+<div align="center">Made with ❤️ for portfolio purposes · Give it a ⭐ if useful!</div>
